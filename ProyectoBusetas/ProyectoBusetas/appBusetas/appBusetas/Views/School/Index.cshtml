@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Buseta_DataAccess.School>
+
+@{
+    ViewBag.Title = "School Maintenance";
+}
+<body >
+    
+    <nav class="navbar navbar-default" role="navigation"style="background-color:#becdd8">
+                    <div class="container-fluid">
+                        <!-- Brand and toggle get grouped for better mobile display -->
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand" href="/Home"">Home</a>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+
+                                <li class="active"><a href="/School" class="dropdown-toggle" data-toggle="dropdown">Configuraciones</a>
+
+                                  
+                                </li>
+                            
+                            </ul>
+
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+
+    <center>
+    <h2 id="texto1">School Maintenance</h2></center>
+  <br />  
+
+
+    @Html.ActionLink("Create New", "Create","",new { @class= "btn btn-primary" })
+    <center>
+<table id="tabla" class="table">
+     <thead >
+    <tr>
+        <th>
+           <label>Name</label>
+        </th>
+        <th>
+            <label>Address</label>
+        </th>
+        <th>
+            Mantenaince
+        </th>
+    </tr>
+ </thead>
+    <tbody >
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+          
+            @Html.ActionLink("Edit", "Edit", new { id = item.id }, new { @class= "btn btn-primary" }) 
+            @Html.ActionLink("Details", "Details", new { id=item.id }, new { @class= "btn btn-primary" }) 
+            @Html.ActionLink("Delete", "Delete", new { id=item.id }, new { @class= "btn btn-primary" })
+        </td>
+    </tr>
+   
+}
+         </tbody>
+
+    </table>
+        </center>
+    
+</body>
